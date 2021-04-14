@@ -8,14 +8,15 @@ class App extends Component{
         username : 'Pham Thai Hoang',
         password : '123456',
         gender : 0,
-        language : ''
+        rdLang : '',
+        checkStatus : true
     };
   }
 
   onHandleChange = (event) => {
    var target = event.target;
    var name = target.name;// lấy ra name của từng ô input
-   var value = target.value;
+   var value = target.type === 'checkbox' ? target.checked : target.value;
    this.setState({
        // gán giá trị nhập được của từng ô input cho attribute của state vì name của ô input và tên attribute giống nhau
      [name] : value
@@ -78,19 +79,35 @@ class App extends Component{
                       <div className="radio">
                           <label>
                                 {/*Muốn chọn một trong hai thì phải đặt hai cái name giống nhau*/}
-                              <input type="radio" name="rdLang" />
+                              <input type="radio" name="rdLang" value="en"
+                                     onChange={this.onHandleChange}
+                              />
                               English
                           </label>
                       </div>
 
                       <div className="radio">
                           <label>
-                              <input type="radio" name="rdLang"  />
+                              <input type="radio" name="rdLang" value="vi"
+                                     onChange={this.onHandleChange}
+                              />
                               VietNamese
                           </label>
                       </div>
 
                       <br/>
+
+                      <div class="checkbox">
+                      	<label>
+                      		<input type="checkbox"
+                                   value={this.state.checkStatus}
+                                   name = "checkStatus"
+                                   onChange={this.onHandleChange}
+
+                            />
+                      		Checkbox
+                      	</label>
+                      </div>
 
 
 
