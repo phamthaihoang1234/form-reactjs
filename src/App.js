@@ -5,19 +5,25 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-        username : ''
+        username : '',
+        password : ''
     };
   }
 
   onHandleChange = (event) => {
-    this.setState({
-      username : event.target.value
-    })
+   var target = event.target;
+   var name = target.name;// lấy ra name của từng ô input
+   var value = target.value;
+   this.setState({
+       // gán giá trị nhập được của từng ô input cho attribute của state vì name của ô input và tên attribute giống nhau
+     [name] : value
+   })
 
   }
 
   onHandleSubmit = (event) =>{
     event.preventDefault();// chặn onsubmit dữ liệu
+    console.log(this.state);
   }
 
 
@@ -38,7 +44,16 @@ class App extends Component{
                       <label >Username</label>
                       <input type="text"
                              className="form-control"
-                             name="txtName"
+                             name="username" // phải trùng với tên attribute của state
+                             onChange={this.onHandleChange}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label >Password</label>
+                      <input type="password"
+                             className="form-control"
+                             name="password"
                              onChange={this.onHandleChange}
                       />
                     </div>
