@@ -7,7 +7,8 @@ class App extends Component{
     this.state = {
         username : 'Pham Thai Hoang',
         password : '123456',
-        gender : 0
+        gender : 0,
+        language : ''
     };
   }
 
@@ -73,6 +74,24 @@ class App extends Component{
 
                       </select>
                       <br/>
+                      <label >Language</label>
+                      <div className="radio">
+                          <label>
+                                {/*Muốn chọn một trong hai thì phải đặt hai cái name giống nhau*/}
+                              <input type="radio" name="rdLang" />
+                              English
+                          </label>
+                      </div>
+
+                      <div className="radio">
+                          <label>
+                              <input type="radio" name="rdLang"  />
+                              VietNamese
+                          </label>
+                      </div>
+
+                      <br/>
+
 
 
                     <button type="submit" className="btn btn-primary">Save</button>
@@ -90,3 +109,4 @@ class App extends Component{
 
 
 export default App;
+
