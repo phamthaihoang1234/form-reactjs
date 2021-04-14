@@ -16,6 +16,7 @@ class App extends Component{
   onHandleChange = (event) => {
    var target = event.target;
    var name = target.name;// lấy ra name của từng ô input
+      // kiểm tra xem kiểu input có phải là checkbox hay không
    var value = target.type === 'checkbox' ? target.checked : target.value;
    this.setState({
        // gán giá trị nhập được của từng ô input cho attribute của state vì name của ô input và tên attribute giống nhau
