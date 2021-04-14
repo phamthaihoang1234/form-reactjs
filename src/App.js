@@ -5,8 +5,9 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-        username : '',
-        password : ''
+        username : 'Pham Thai Hoang',
+        password : '123456',
+        gender : 0
     };
   }
 
@@ -46,6 +47,7 @@ class App extends Component{
                              className="form-control"
                              name="username" // phải trùng với tên attribute của state
                              onChange={this.onHandleChange}
+                             value={this.state.username}
                       />
                     </div>
 
@@ -54,9 +56,25 @@ class App extends Component{
                       <input type="password"
                              className="form-control"
                              name="password"
+                             value={this.state.password}
                              onChange={this.onHandleChange}
                       />
                     </div>
+
+
+                      <label>Gender</label>
+                      <select name="gender"
+                              className="form-control"
+                              value={this.state.gender}
+                              onChange={this.onHandleChange}
+                      >
+                          <option value={0}>Nam</option>
+                          <option value={1}>Nữ</option>
+
+                      </select>
+                      <br/>
+
+
                     <button type="submit" className="btn btn-primary">Save</button>
                     <button type="reset" className="btn btn-default">Delete</button>
                   </form>
